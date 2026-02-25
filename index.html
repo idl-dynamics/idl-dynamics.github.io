@@ -3,37 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDL Dynamics | Support & Info</title>
+    <title>IDL Dynamics | MathDoku X</title>
     <style>
-        :root { --neon-cyan: #00f0ff; --bg-dark: #0a0e14; --card-bg: #161b22; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-dark); color: white; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { max-width: 600px; width: 90%; text-align: center; padding: 40px; background: var(--card-bg); border: 2px solid var(--neon-cyan); border-radius: 20px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
-        h1 { font-size: 2.5rem; letter-spacing: 4px; color: var(--neon-cyan); text-transform: uppercase; margin-bottom: 10px; }
-        p { color: #8b949e; line-height: 1.6; font-size: 1.1rem; }
-        .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 25px 0; }
-        .btn { display: block; background: transparent; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 15px; margin: 15px 0; text-decoration: none; border-radius: 10px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: var(--neon-cyan); color: black; box-shadow: 0 0 15px var(--neon-cyan); }
-        .contact { margin-top: 20px; font-size: 0.9rem; color: #58a6ff; }
-        .footer { margin-top: 30px; font-size: 0.8rem; color: #484f58; }
+        :root { --neon-cyan: #00f0ff; --neon-magenta: #ff00ff; --bg-dark: #0a0e14; --card-bg: #161b22; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-dark); color: white; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { max-width: 650px; width: 90%; text-align: center; padding: 40px; background: var(--card-bg); border: 2px solid var(--neon-cyan); border-radius: 24px; box-shadow: 0 0 30px rgba(0, 240, 255, 0.15); margin: 20px; }
+        h1 { font-size: 2.8rem; letter-spacing: 5px; color: var(--neon-cyan); text-transform: uppercase; margin: 0; text-shadow: 0 0 10px var(--neon-cyan); }
+        .tagline { color: var(--neon-magenta); font-weight: bold; letter-spacing: 2px; margin-bottom: 30px; font-size: 0.9rem; }
+        p { color: #8b949e; line-height: 1.7; font-size: 1.05rem; }
+        
+        .features { text-align: left; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; margin: 25px 0; border-left: 3px solid var(--neon-magenta); }
+        .features ul { list-style: none; padding: 0; margin: 0; }
+        .features li { margin: 10px 0; color: #c9d1d9; font-size: 0.95rem; }
+        .features li::before { content: "⚡"; margin-right: 10px; color: var(--neon-cyan); }
+
+        .btn-group { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .btn { display: block; padding: 16px; text-decoration: none; border-radius: 12px; font-weight: bold; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Ana Buton: Destek Sayfasına Gider */
+        .btn-support { background: transparent; color: var(--neon-cyan); border: 2px solid var(--neon-cyan); }
+        .btn-support:hover { background: var(--neon-cyan); color: black; box-shadow: 0 0 20px var(--neon-cyan); }
+        
+        .contact-info { margin-top: 30px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .contact-info a { color: var(--neon-cyan); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .contact-info a:hover { border-bottom: 1px solid var(--neon-cyan); }
+        
+        .footer { font-size: 0.8rem; color: #484f58; margin-top: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>IDL DYNAMICS</h1>
-        <p>Official Hub for MathDoku X & Logic Puzzles</p>
+        <div class="tagline">EVOLVING LOGIC PUZZLES</div>
         
-        <div class="divider"></div>
+        <p>Experience the next generation of Sudoku and MathDoku. Challenge your mind with our unique neon-infused logic puzzles.</p>
         
-        <a href="https://idl-dynamics.github.io/IDL-Dynamics-Support/" class="btn">GO TO SUPPORT WIKI & GUIDES</a>
-        
-        <a href="https://idl-dynamics.github.io/IDL-Dynamics-Support/" class="btn">APP FEATURES & MARKETING</a>
+        <div class="features">
+            <ul>
+                <li><strong>MathDoku X:</strong> Advanced arithmetic logic challenges.</li>
+                <li><strong>Classic Sudoku:</strong> Competitive ranked arena mode.</li>
+                <li><strong>Smart Assistant:</strong> AI-powered hints and error scanning.</li>
+                <li><strong>Neon Themes:</strong> High-contrast, beautiful cyberpunk aesthetics.</li>
+            </ul>
+        </div>
 
-        <div class="contact">
-            Contact Support: <a href="mailto:support@example.com" style="color: inherit;">your-email@gmail.com</a>
+        <div class="btn-group">
+            <a href="https://idl-dynamics.github.io/IDL-Dynamics-Support/" class="btn btn-support">Open Support Wiki & Guides</a>
+        </div>
+
+        <div class="contact-info">
+            <p>Need direct help? Contact our team:</p>
+            <a href="mailto:idldynamics@gmail.com">idldynamics@gmail.com</a>
         </div>
 
         <div class="footer">
-            © 2026 IDL Dynamics. All rights reserved.
+            © 2026 IDL Dynamics. Built for thinkers.
         </div>
     </div>
 </body>
