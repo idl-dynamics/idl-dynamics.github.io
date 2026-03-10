@@ -1,1 +1,11 @@
-
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "SKZQ9GY773.com.idldynamics.attendance",
+        "paths": [ "*" ]
+      }
+    ]
+  }
+}
