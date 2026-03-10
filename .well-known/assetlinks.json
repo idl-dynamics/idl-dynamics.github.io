@@ -1,1 +1,10 @@
-
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.idldynamics.attendance",
+    "sha256_cert_fingerprints": [
+      "77:3C:22:94:86:2D:5B:4F:A6:D3:34:D7:39:75:9C:B4:53:4B:67:4E:0E:51:EF:75:18:81:F1:E6:D1:59:F1:F3"
+    ]
+  }
+}]
