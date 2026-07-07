@@ -3,83 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDL Attendance | Next-Gen Classroom Management</title>
+    <title>IDL Attendance | Roll Call Without the Roll Call</title>
     <link rel="icon" href="https://img.icons8.com/fluency/48/000000/calendar.png" type="image/png">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #007AFF;
-            --secondary: #34C759;
-            --dark: #0F172A;
-            --light: #F8FAFC;
-            --gray: #64748B;
-            --card-bg: #FFFFFF;
+            --ink: #0B0B12;
+            --ink-raised: #15151F;
+            --ink-raised-2: #1C1C29;
+            --paper: #F3F1FF;
+            --muted: #8E8AA8;
+            --teal: #2DD4BF;
+            --teal-soft: rgba(45, 212, 191, 0.14);
         }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: var(--ink); color: var(--paper); line-height: 1.6; overflow-x: hidden; }
+        .display { font-family: 'Space Grotesk', sans-serif; }
+        a { color: inherit; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 6%; }
 
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Navigation */
-        nav { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        nav { padding: 20px 0; position: sticky; top: 0; z-index: 100; background: rgba(11,11,18,0.75); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); }
         nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px;}
-        .logo span { color: var(--primary); }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--gray); font-weight: 500; transition: 0.3s;}
-        .nav-links a:hover { color: var(--primary); }
+        .logo { font-size: 1.15rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--teal); }
+        .back-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--paper); }
 
-        /* Hero Section */
-        .hero { padding: 80px 0; text-align: center; background: linear-gradient(135deg, #E0F2FE 0%, #FFFFFF 100%); }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; color: #1E293B;}
-        .hero p { font-size: 1.2rem; color: var(--gray); max-width: 800px; margin: 0 auto 40px; }
-        .store-buttons { display: flex; justify-content: center; gap: 20px; }
-        .store-btn { display: inline-flex; align-items: center; gap: 10px; background: black; color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.2s;}
-        .store-btn:hover { transform: translateY(-3px); }
+        .hero { padding: 120px 0 90px; text-align: center; position: relative; }
+        .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(45,212,191,0.18), transparent 65%); filter: blur(40px); z-index: 0; }
+        .eyebrow { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--teal); background: var(--teal-soft); padding: 8px 16px; border-radius: 100px; margin-bottom: 26px; }
+        .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+        .hero h1 { position: relative; z-index: 1; font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; margin: 0 0 22px; }
+        .hero p { position: relative; z-index: 1; font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 40px; }
+        .store-buttons { position: relative; z-index: 1; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: transform 0.15s; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-solid { background: var(--teal); color: #0B0B12; }
+        .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.16); color: var(--paper); }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.4); }
 
-        /* Features Section */
-        .features { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-weight: 700; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;}
-        
-        .feature-box { background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--primary);}
-        .feature-box.student { border-top-color: var(--secondary); }
-        .feature-box h3 { font-size: 1.8rem; margin-top: 0; display: flex; align-items: center; gap: 10px;}
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li { margin-bottom: 20px; position: relative; padding-left: 30px;}
-        .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; font-size: 1.2rem;}
-        .feature-box.student .feature-list li::before { color: var(--secondary); }
+        section { padding: 70px 0; }
+        .section-label { text-align: center; font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+        .section-title { text-align: center; font-size: 2.1rem; font-weight: 700; letter-spacing: -0.8px; margin: 0 0 50px; }
 
-        /* How it Works */
-        .how-it-works { background: var(--dark); color: white; padding: 80px 0; text-align: center; }
-        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;}
-        .step { padding: 30px; background: rgba(255,255,255,0.05); border-radius: 16px; }
-        .step-num { width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;}
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .feature-box { background: var(--ink-raised); padding: 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,0.06); border-top: 3px solid var(--teal); }
+        .feature-box.student { border-top-color: var(--muted); }
+        .feature-box h3 { font-size: 1.35rem; margin: 0 0 22px; display: flex; align-items: center; gap: 10px; }
+        .feature-list { list-style: none; padding: 0; margin: 0; }
+        .feature-list li { margin-bottom: 18px; position: relative; padding-left: 28px; color: var(--muted); font-size: 0.98rem; }
+        .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+        .feature-list li strong { color: var(--paper); }
 
-        /* FAQ Section */
-        .faq { padding: 80px 0; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .faq-item h4 { margin: 0 0 10px 0; font-size: 1.1rem; color: var(--primary); }
-        .faq-item p { margin: 0; color: var(--gray); font-size: 0.95rem;}
+        .how-it-works { background: var(--ink-raised); border-radius: 28px; margin: 0 6%; padding: 70px 6%; width: auto; }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 10px; }
+        .step { padding: 28px; background: var(--ink-raised-2); border-radius: 18px; }
+        .step-num { width: 42px; height: 42px; background: var(--teal); color: #0B0B12; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 18px; font-family: 'Space Grotesk', sans-serif; }
+        .step h3 { font-size: 1.1rem; margin: 0 0 8px; }
+        .step p { color: var(--muted); font-size: 0.92rem; margin: 0; }
 
-        /* Contact & Forms */
-        .contact-section { padding: 80px 0; background: #E2E8F0; }
-        .form-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--ink-raised); margin-bottom: 12px; border-radius: 16px; padding: 22px 26px; border: 1px solid rgba(255,255,255,0.06); }
+        .faq-item h4 { margin: 0 0 8px; font-size: 1.05rem; color: var(--teal); }
+        .faq-item p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+        .contact-info { text-align: center; margin-bottom: 40px; }
+        .contact-info a { color: var(--teal); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+        .form-container { background: var(--ink-raised); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.06); max-width: 720px; margin: 0 auto; }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;}
-        .form-control { width: 100%; padding: 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-family: inherit; font-size: 1rem; box-sizing: border-box;}
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.88rem; color: var(--muted); }
+        .form-control { width: 100%; padding: 13px 14px; background: var(--ink); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-family: inherit; font-size: 0.98rem; color: var(--paper); }
+        .form-control:focus { outline: none; border-color: var(--teal); }
         select.form-control { cursor: pointer; }
         textarea.form-control { height: 120px; resize: vertical; }
-        .submit-btn { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; transition: 0.3s;}
-        .submit-btn:hover { background: #0056B3; }
-        .contact-info { text-align: center; margin-bottom: 40px; }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.2rem;}
+        .submit-btn { background: var(--teal); color: #0B0B12; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; transition: opacity 0.2s; }
+        .submit-btn:hover { opacity: 0.88; }
 
-        footer { text-align: center; padding: 30px; background: var(--dark); color: #94A3B8; font-size: 0.9rem;}
+        footer { text-align: center; padding: 40px 6%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--paper); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
             .grid-2, .steps { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .how-it-works { margin: 0 4%; padding: 50px 6%; }
         }
     </style>
 </head>
@@ -87,157 +95,150 @@
 
     <nav>
         <div class="container">
-            <a href="/" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                IDL <span>Attendance</span>
-            </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How it Works</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <a href="/" class="logo">IDL <span>Attendance</span></a>
+            <a href="/" class="back-link">← Ecosystem</a>
         </div>
     </nav>
 
     <section class="hero">
+        <div class="hero-glow"></div>
         <div class="container">
-            <h1>Classroom Management,<br>Now in Your Pocket.</h1>
-            <p>Say goodbye to paperwork and Excel sheets. IDL Attendance bridges the gap between instructors and students with location-verified check-ins, instant announcements, and secure messaging.</p>
-            
+            <span class="eyebrow">For instructors & students</span>
+            <h1 class="display">Roll call, without<br>the roll call.</h1>
+            <p>Location-verified check-ins, instant announcements, and secure messaging — built so instructors stop chasing paper, and students stop guessing where they stand.</p>
             <div class="store-buttons">
-                <a href="https://apps.apple.com/us/app/idl-attendance-roll-call/id6760389433" target="_blank" class="store-btn">
-                    <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9z"/></svg>
+                <a href="https://apps.apple.com/us/app/idl-attendance-roll-call/id6760389433" target="_blank" class="btn btn-solid">
+                    <svg viewBox="0 0 384 512" width="18" height="18" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9z"/></svg>
                     Download on App Store
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.idldynamics.attendance" target="_blank" class="store-btn">
-                    <svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                <a href="https://play.google.com/store/apps/details?id=com.idldynamics.attendance" target="_blank" class="btn btn-outline">
+                    <svg viewBox="0 0 512 512" width="18" height="18" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                     Get it on Google Play
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features container">
-        <h2 class="section-title">A Digital Bridge for Education</h2>
-        
+    <section id="features" class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title display">A digital bridge for the classroom</h2>
+
         <div class="grid-2">
             <div class="feature-box">
-                <h3>👨‍🏫 For Instructors & Admins</h3>
+                <h3 class="display">👨‍🏫 For Instructors & Admins</h3>
                 <ul class="feature-list">
-                    <li><strong>One-Tap Digital Roll Call:</strong> Stop wasting time with paper lists. Take attendance instantly and sync securely to the cloud.</li>
-                    <li><strong>Location-Verified Tracking:</strong> Maximize security. Verify if students are actually in the classroom or campus area using GPS coordinates.</li>
-                    <li><strong>Detailed Analytics:</strong> Monitor attendance trends via charts. Export detailed PDF/Excel reports instantly.</li>
-                    <li><strong>Push Announcements:</strong> Send instant notifications for class cancellations or exam dates.</li>
-                    <li><strong>Secure Messaging:</strong> Communicate directly with students without sharing your personal phone number.</li>
+                    <li><strong>One-tap digital roll call:</strong> Stop wasting time with paper lists. Take attendance instantly and sync securely to the cloud.</li>
+                    <li><strong>Location-verified tracking:</strong> Confirm students are actually in the classroom or campus area using GPS coordinates.</li>
+                    <li><strong>Detailed analytics:</strong> Monitor attendance trends via charts. Export PDF/Excel reports instantly.</li>
+                    <li><strong>Push announcements:</strong> Send instant notifications for class cancellations or exam dates.</li>
+                    <li><strong>Secure messaging:</strong> Communicate directly with students without sharing your personal phone number.</li>
                 </ul>
             </div>
 
             <div class="feature-box student">
-                <h3>🎓 For Students</h3>
+                <h3 class="display">🎓 For Students</h3>
                 <ul class="feature-list">
-                    <li><strong>Transparent Tracking:</strong> No more guessing. View your current attendance status, attended classes, and absence limits on your dashboard.</li>
-                    <li><strong>Instant Notifications:</strong> Get schedule changes, urgent announcements, or extra materials directly to your phone.</li>
-                    <li><strong>Direct Communication:</strong> Message your instructors securely within the app for questions or updates.</li>
-                    <li><strong>Quick Access:</strong> Sign in effortlessly using your Email, Google, or Apple accounts.</li>
+                    <li><strong>Transparent tracking:</strong> View your current attendance status, attended classes, and absence limits on your dashboard.</li>
+                    <li><strong>Instant notifications:</strong> Get schedule changes, urgent announcements, or extra materials directly to your phone.</li>
+                    <li><strong>Direct communication:</strong> Message your instructors securely within the app for questions or updates.</li>
+                    <li><strong>Quick access:</strong> Sign in effortlessly using your Email, Google, or Apple account.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
+    <section id="how-it-works">
+        <div class="how-it-works">
+            <div class="section-label">The flow</div>
+            <h2 class="section-title display">How it works</h2>
             <div class="steps">
                 <div class="step">
-                    <div class="step-num">1</div>
-                    <h3>Create Your Space</h3>
+                    <div class="step-num display">1</div>
+                    <h3 class="display">Create your space</h3>
                     <p>Instructors create a class and generate a secure, unique code for students to join.</p>
                 </div>
                 <div class="step">
-                    <div class="step-num">2</div>
-                    <h3>Start the Session</h3>
+                    <div class="step-num display">2</div>
+                    <h3 class="display">Start the session</h3>
                     <p>Open the class session. Students verify their presence using location data.</p>
                 </div>
                 <div class="step">
-                    <div class="step-num">3</div>
-                    <h3>Manage & Export</h3>
+                    <div class="step-num display">3</div>
+                    <h3 class="display">Manage & export</h3>
                     <p>Track everything from the dashboard, send messages, and export reports in one click.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="faq container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        
+    <section id="faq" class="container">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title display">Frequently asked</h2>
+
         <div class="faq-item">
-            <h4>Is my data secure?</h4>
-            <p>Absolutely. All data (student info, messages, attendance logs) is stored in highly secure cloud servers encrypted with Row-Level Security (RLS). No data is shared with third parties.</p>
+            <h4 class="display">Is my data secure?</h4>
+            <p>Yes. All data (student info, messages, attendance logs) is stored in encrypted cloud servers protected with Row-Level Security (RLS). No data is shared with third parties.</p>
         </div>
         <div class="faq-item">
-            <h4>How does location-verified attendance work?</h4>
+            <h4 class="display">How does location-verified attendance work?</h4>
             <p>When a session starts, the app compares the student's GPS location with the classroom coordinates. Only students within the designated area are marked as present, preventing remote or proxy sign-ins.</p>
         </div>
         <div class="faq-item">
-            <h4>Do I need to share my phone number to message students?</h4>
-            <p>No. Our built-in messaging module allows you to communicate solely through your app profile. Your personal phone number and social media remain completely private.</p>
+            <h4 class="display">Do I need to share my phone number to message students?</h4>
+            <p>No. Our built-in messaging module lets you communicate solely through your app profile. Your personal phone number and social media stay private.</p>
         </div>
         <div class="faq-item">
-            <h4>Can I export the attendance data?</h4>
-            <p>Yes. You can generate weekly, monthly, or term-based reports and download them as Excel or PDF files to share with administration or parents.</p>
+            <h4 class="display">Can I export the attendance data?</h4>
+            <p>Yes. Generate weekly, monthly, or term-based reports and download them as Excel or PDF files to share with administration or parents.</p>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title" style="margin-bottom: 20px;">Get in Touch</h2>
-            <div class="contact-info">
-                <p>Direct Email: <a href="mailto:idldynamics@gmail.com">idldynamics@gmail.com</a></p>
-            </div>
-            
-            <div class="form-container">
-                <form action="https://formspree.io/f/mzdkegja" method="POST">
-                    
+    <section id="contact" class="container">
+        <div class="section-label">Talk to us</div>
+        <h2 class="section-title display">Get in touch</h2>
+        <div class="contact-info">
+            <p style="color: var(--muted);">Direct email: <a href="mailto:idldynamics@gmail.com">idldynamics@gmail.com</a></p>
+        </div>
+
+        <div class="form-container">
+            <form action="https://formspree.io/f/mzdkegja" method="POST">
+
+                <div class="form-group">
+                    <label for="inquiry-type">What is your inquiry about?</label>
+                    <select name="inquiry_type" id="inquiry-type" class="form-control" required>
+                        <option value="General Support">General Support & Questions</option>
+                        <option value="Corporate Partnership">Corporate / School Partnership</option>
+                        <option value="Technical Issue">Report a Technical Issue</option>
+                    </select>
+                </div>
+
+                <div class="grid-2" style="gap: 20px;">
                     <div class="form-group">
-                        <label for="inquiry-type">What is your inquiry about?</label>
-                        <select name="inquiry_type" id="inquiry-type" class="form-control" required>
-                            <option value="General Support">General Support & Questions</option>
-                            <option value="Corporate Partnership">Corporate / School Partnership</option>
-                            <option value="Technical Issue">Report a Technical Issue</option>
-                        </select>
+                        <label for="name">Full Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
                     </div>
-
-                    <div class="grid-2" style="margin-bottom: 0; gap: 20px;">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" name="_replyto" id="email" class="form-control" required>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea name="message" id="message" class="form-control" placeholder="How can we help you or your institution?" required></textarea>
+                        <label for="email">Email Address</label>
+                        <input type="email" name="_replyto" id="email" class="form-control" required>
                     </div>
-                    
-                    <input type="hidden" name="_subject" value="New Submission from IDL Attendance Website!">
-                    <input type="text" name="_gotcha" style="display:none" />
+                </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea name="message" id="message" class="form-control" placeholder="How can we help you or your institution?" required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New Submission from IDL Attendance Website!">
+                <input type="text" name="_gotcha" style="display:none" />
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <div style="margin-bottom: 15px;">
-            <a href="/privacy-attendance.html" style="color: #94A3B8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s;" onmouseover="this.style.color='#007AFF'" onmouseout="this.style.color='#94A3B8'">Privacy Policy</a>
+            <a href="/privacy-attendance.html">Privacy Policy</a>
         </div>
         <p>&copy; 2026 IDL Dynamics. All rights reserved.</p>
     </footer>
