@@ -88,6 +88,23 @@
   strong { color: var(--ink); }
   a { color: var(--indigo); text-decoration: none; font-weight: 600; }
   a:hover { text-decoration: underline; }
+  /* Hesap silme adimlari — sayfanin en cok aranan bolumu (App Store 5.1.1(v)
+     incelemesi dogrudan buraya bakar), bu yuzden gorsel olarak one cikarilir. */
+  .path {
+    background: #F5F6FF;
+    border: 1px solid #DCDFFB;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 12px 0 0;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .path strong { white-space: nowrap; }
+  .note {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 12px;
+  }
   footer {
     text-align: center;
     color: var(--muted);
@@ -100,26 +117,36 @@
   <div class="wrap">
     <span class="badge">Sınav Koçu</span>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last Updated: July 22, 2026</div>
+    <div class="updated">Last Updated: September 8, 2026</div>
 
     <div class="card">
       <h2><span class="num">1</span>Information We Collect</h2>
-      <p>Sınav Koçu collects minimal data necessary to function as an exam-preparation tool: basic account information (email, name) via Google or Apple Sign-In, your selected university/department/class year, study progress and answer history, and daily streak/statistics.</p>
+      <p>Sınav Koçu collects only the data it needs to work as an exam-preparation tool:</p>
+      <ul>
+        <li><strong>Account basics</strong> — your name and email address, provided by Google or Apple when you sign in.</li>
+        <li><strong>Study profile</strong> — the university, department(s), class year and exam dates you choose.</li>
+        <li><strong>Study activity</strong> — your answers, spaced-repetition schedule, mock-exam results, daily streak, badges and leaderboard standing.</li>
+        <li><strong>Support messages</strong> — anything you write to us through the in-app messaging screen.</li>
+        <li><strong>Notification token</strong> — a device identifier used only to deliver study reminders you have enabled.</li>
+      </ul>
+      <p class="note">We do <strong>not</strong> collect your location, contacts, or browsing activity, and the app contains no advertising trackers.</p>
     </div>
 
     <div class="card">
       <h2><span class="num">2</span>Authentication</h2>
-      <p>We use Google Sign-In and Sign in with Apple exclusively for authentication. We do not collect or store passwords. Your name and email are provided to us by Google/Apple with your consent during sign-in.</p>
+      <p>We use Google Sign-In and Sign in with Apple exclusively for authentication. We never see or store passwords. Your name and email are provided to us by Google or Apple with your consent at sign-in.</p>
+      <p class="note">If you use Sign in with Apple, Apple shares your name only the first time you authorize the app, and you may choose <strong>Hide My Email</strong> — in that case we only ever receive Apple's private relay address, never your real one.</p>
     </div>
 
     <div class="card">
       <h2><span class="num">3</span>Purchases</h2>
-      <p>Course package purchases are processed through the Apple App Store / Google Play via RevenueCat. We do not directly collect or store your payment card information — this is handled entirely by Apple, Google, and RevenueCat according to their own privacy and security standards.</p>
+      <p>Course package purchases are processed through the Apple App Store or Google Play via RevenueCat. We do not collect or store your payment card details — these are handled entirely by Apple, Google and RevenueCat under their own privacy and security standards. We receive only the fact that a purchase succeeded and what it unlocked.</p>
     </div>
 
     <div class="card">
       <h2><span class="num">4</span>Community-Shared Content</h2>
-      <p>If you upload exam papers via the "Upload Exam Paper" feature, the file (and any questions extracted from it) may be shared anonymously with the wider student community using the app, to help build a shared question bank. We do not attach your name or identity to uploaded content visible to other users.</p>
+      <p>If you upload an exam paper through the "Upload Exam Paper" feature, the file and any questions extracted from it may be shared anonymously with other students using the app, to build a shared question bank. Your name and identity are never attached to uploaded content shown to other users.</p>
+      <p class="note">Because this content becomes part of a shared study resource for other students, <strong>uploaded exam paper files are not removed when you delete your account</strong> — but the record linking them to you is deleted, so they can no longer be traced back to you. See section 7.</p>
     </div>
 
     <div class="card">
@@ -131,26 +158,44 @@
         <li><strong>OneSignal</strong> — push notifications</li>
         <li><strong>RevenueCat</strong> — purchase processing</li>
       </ul>
-      <p style="margin-top:10px;">These services handle your data according to their own security and privacy standards.</p>
+      <p class="note">These services handle your data according to their own security and privacy standards.</p>
     </div>
 
     <div class="card">
       <h2><span class="num">6</span>Data Security</h2>
-      <p>We implement robust security measures to protect your data. Your information is never sold to third parties.</p>
+      <p>Your data is transmitted over encrypted connections and stored with per-user access rules, so one account cannot read another's data. Your information is never sold to third parties.</p>
     </div>
 
     <div class="card">
       <h2><span class="num">7</span>Account and Data Deletion</h2>
-      <p>You can delete your account and all associated personal data at any time by:</p>
+      <p>You can delete your account and its data at any time, directly inside the app. No email, phone call or customer-service step is required.</p>
+      <div class="path">
+        In the app: <strong>Profile</strong> → scroll to the bottom → <strong>Delete My Account</strong> → type the confirmation word → confirm.
+      </div>
+      <p style="margin-top:14px;">Deletion is <strong>immediate and permanent</strong>. Your account and everything tied to it are erased from our servers at once, including:</p>
       <ul>
-        <li>Using the "Delete Account" option within the application settings.</li>
-        <li>Sending an email to <strong>idldynamics@gmail.com</strong> with the subject "Account Deletion Request".</li>
+        <li>your profile, university/department selections and exam dates</li>
+        <li>your answer history, spaced-repetition schedule and daily study plan</li>
+        <li>your mock-exam results, statistics, streak, badges and leaderboard entry</li>
+        <li>your purchase records and offline course entitlements</li>
+        <li>your support messages</li>
       </ul>
-      <p style="margin-top:10px;">Upon receiving your request, we will permanently delete your account information and associated data from our servers within 30 days.</p>
+      <p class="note">Two things to be aware of. <strong>Exam papers you uploaded</strong> stay in the shared question bank for other students, with the record linking them to you deleted (see section 4). <strong>An active subscription is not cancelled by deleting your account</strong> — subscriptions are managed by Apple and Google, so you must cancel yours separately in your App Store or Google Play subscription settings.</p>
+      <p class="note">If you cannot access the app, you may instead email <a href="mailto:idldynamics@gmail.com?subject=Account%20Deletion%20Request">idldynamics@gmail.com</a> with the subject "Account Deletion Request" and we will delete your account within 30 days. Full details, in Turkish, are on our <a href="/account-deletion-sinavkocu.html">account deletion page</a>.</p>
     </div>
 
     <div class="card">
-      <h2><span class="num">8</span>Contact Us</h2>
+      <h2><span class="num">8</span>Your Rights</h2>
+      <p>You may access, correct or delete your personal data at any time. Most of it is editable directly in the app (Profile screen), and deletion is available as described in section 7. For any request we cannot serve in the app, write to us at <a href="mailto:idldynamics@gmail.com">idldynamics@gmail.com</a> and we will respond within 30 days.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">9</span>Changes to This Policy</h2>
+      <p>If we change how we handle your data, we will update this page and the "Last Updated" date above. Significant changes will also be announced in the app.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">10</span>Contact Us</h2>
       <p>If you have any questions, please contact us at: <a href="mailto:idldynamics@gmail.com">idldynamics@gmail.com</a></p>
     </div>
 
