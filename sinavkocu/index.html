@@ -3,51 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sınav Koçu</title>
-<meta name="description" content="Açıköğretim sınavlarına akıllı hazırlık">
+<title>Açıköğretim Sınav Koçu</title>
+<meta name="description" content="Açıköğretim sınavlarına akıllı hazırlık: çıkmış sorular, unutma eğrisine göre kurulan günlük plan ve deneme sınavları.">
 
 <!-- Sohbet uygulamalarinda baglanti onizlemesi (WhatsApp, Telegram, X) -->
-<meta property="og:title" content="Sınav Koçu">
+<meta property="og:title" content="Açıköğretim Sınav Koçu">
 <meta property="og:description" content="Açıköğretim sınavlarına akıllı hazırlık">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://idl-dynamics.github.io/sinavkocu">
+<meta property="og:url" content="https://idldynamics.com/sinavkocu/">
 <meta name="twitter:card" content="summary">
 
-<!-- iOS Safari: uygulama kuruluysa ustte "Aç" seridi cikar.
-     ID doldurulmadan ETKISIZDIR, zarar vermez. -->
-<meta name="apple-itunes-app" content="app-id=APPLE_APP_ID">
+<!-- iOS Safari: uygulama kuruluysa ustte "Aç" seridi cikar. -->
+<meta name="apple-itunes-app" content="app-id=6795812576">
 
 <style>
-  :root { color-scheme: dark; }
+  :root {
+    color-scheme: dark;
+    --metin: #F5F5FF;
+    --solgun: #A9AECF;
+    --cok-solgun: #7F86AB;
+    --marka: #4F6AF5;
+  }
   * { box-sizing: border-box; }
   body{
-    margin:0; min-height:100svh; display:grid; place-items:center; padding:24px;
+    margin:0; min-height:100svh; display:grid; place-items:center; padding:32px 24px;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:linear-gradient(135deg,#1B1E3D,#2E2270); color:#F5F5FF; text-align:center;
+    background:linear-gradient(135deg,#1B1E3D,#2E2270); color:var(--metin); text-align:center;
   }
-  .kutu{ width:100%; max-width:380px; }
+  .kutu{ width:100%; max-width:420px; }
+
+  .logo{
+    width:84px; height:84px; margin:0 auto 18px; border-radius:22px;
+    background:rgba(255,255,255,.08); display:grid; place-items:center;
+    font-size:38px; line-height:1;
+  }
   h1{ font-size:30px; margin:0 0 6px; letter-spacing:-.5px; }
-  p.slogan{ color:#A9AECF; margin:0 0 28px; font-size:15px; }
-  a.magaza{
-    display:block; padding:15px 20px; margin:10px 0; border-radius:14px;
-    background:#4F6AF5; color:#fff; text-decoration:none; font-weight:600; font-size:16px;
+  p.slogan{ color:var(--solgun); margin:0 0 26px; font-size:15px; line-height:1.5; }
+
+  /* Ozellikler: sayfa "indir" demeden once NE OLDUGUNU soylesin. */
+  ul.ozellikler{
+    list-style:none; margin:0 0 28px; padding:0; text-align:left;
+    display:grid; gap:10px;
   }
-  a.magaza.ikincil{ background:rgba(255,255,255,.10); }
-  p.not{ color:#7F86AB; font-size:12px; margin-top:22px; line-height:1.5; }
-  a.yasal{ color:#7F86AB; }
+  ul.ozellikler li{
+    background:rgba(255,255,255,.06); border-radius:12px; padding:12px 14px;
+    font-size:14px; line-height:1.45; color:var(--metin);
+  }
+  ul.ozellikler li b{ display:block; font-size:14px; margin-bottom:2px; }
+  ul.ozellikler li span{ color:var(--solgun); }
+
+  /* Magaza rozetleri: resmi gorseller (Apple Marketing Tools / Google Play).
+     Kendi cizdigimiz taklit rozet marka kilavuzlarina aykiridir. */
+  .rozetler{ display:grid; gap:12px; justify-items:center; }
+  .rozet{ display:inline-block; line-height:0; }
+  .rozet img{ height:54px; width:auto; }
+  .rozet.pasif{ opacity:.45; pointer-events:none; filter:grayscale(1); }
+  p.yakinda{ color:var(--cok-solgun); font-size:12px; margin:6px 0 0; }
+
+  p.not{ color:var(--cok-solgun); font-size:12px; margin-top:26px; line-height:1.6; }
+  a.yasal{ color:var(--cok-solgun); }
 </style>
 </head>
 <body>
 <div class="kutu">
-  <h1>Sınav Koçu</h1>
-  <p class="slogan">Açıköğretim sınavlarına akıllı hazırlık</p>
+  <div class="logo" aria-hidden="true">🎓</div>
+  <h1>Açıköğretim Sınav Koçu</h1>
+  <p class="slogan">Çıkmış sorularla çalış, planı biz kuralım.</p>
 
-  <a class="magaza" id="ios"     href="APP_STORE_URL">App Store</a>
-  <a class="magaza ikincil" id="android" href="PLAY_STORE_URL">Google Play</a>
+  <ul class="ozellikler">
+    <li><b>Günlük görev</b><span>Bugün hangi soruları çözmen gerektiğini unutma eğrisine göre hesaplarız.</span></li>
+    <li><b>Çıkmış sorular</b><span>Bölümünün derslerine ait binlerce soru, ünite ve yıl bilgisiyle.</span></li>
+    <li><b>Deneme sınavı</b><span>Süreli deneme çöz, sonra her sorunun doğrusunu incele.</span></li>
+  </ul>
+
+  <div class="rozetler">
+    <!-- APP STORE: kanonik kisa adres. /tr/ ve ?l=tr KULLANILMAZ -- ikisi de
+         bolgeyi/dili zorlar ve yurtdisindaki ogrenciyi yanlis magazaya atar. -->
+    <a class="rozet" id="ios" href="https://apps.apple.com/app/id6795812576">
+      <img alt="App Store'dan indirin"
+           src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/tr-tr">
+    </a>
+
+    <!-- GOOGLE PLAY: uygulama HENUZ YAYINDA DEGIL. Rozet pasif duruyor;
+         adres verilmiyor ki kimse 404'e dusmesin. Yayina cikinca href
+         doldurulup "pasif" sinifi ve alttaki not kaldirilir. -->
+    <span class="rozet pasif" id="android" aria-disabled="true">
+      <img alt="Google Play"
+           src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png">
+    </span>
+    <p class="yakinda">Google Play sürümü yakında.</p>
+  </div>
 
   <p class="not">
-    <a class="yasal" href="/sinavkocu-privacy.html">Gizlilik</a> ·
-    <a class="yasal" href="/sinavkocu-terms.html">Kullanım Şartları</a>
+    <a class="yasal" href="https://idl-dynamics.github.io/sinavkocu-privacy.html">Gizlilik</a> ·
+    <a class="yasal" href="https://idl-dynamics.github.io/sinavkocu-terms.html">Kullanım Şartları</a>
   </p>
 </div>
 
@@ -58,24 +107,18 @@
   // location.replace kullaniliyor, href DEGIL: gecmise kayit birakmaz,
   // yani kullanici magazadan geri donunce bu sayfaya DUSMEZ.
   //
-  // Adresler doldurulmadiysa YONLENDIRME YAPILMAZ ve iki buton da gorunur
-  // kalir. Bilincli: yarim bir adrese atmaktansa secenek sunmak iyidir --
-  // paylasilan gorsel yillarca dolasabilir, olu yonlendirme geri alinamaz.
+  // YALNIZCA iOS yonlendirilir: Android surumu henuz yayinda degil, o
+  // cihazlar sayfada kalir ve "yakinda" notunu gorur. Yarim bir adrese
+  // atmaktansa sayfada tutmak iyidir -- paylasilan karekod yillarca
+  // dolasabilir ve olu bir yonlendirme geri alinamaz.
   var ua = navigator.userAgent || '';
   var ios = /iPad|iPhone|iPod/.test(ua) ||
             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  var android = /Android/i.test(ua);
+  if (!ios) return;
 
-  var bag = ios ? document.getElementById('ios')
-          : android ? document.getElementById('android')
-          : null;
-  if (!bag) return;                              // masaustu: iki butonu da gorsun
-
-  var hedef = bag.getAttribute('href');
-  if (!hedef || hedef.indexOf('_URL') !== -1) return;  // adres doldurulmamis
-
-  // Dogru magazayi ustte goster (yonlendirme engellenirse bile isine yarar).
-  bag.classList.remove('ikincil');
+  var bag = document.getElementById('ios');
+  var hedef = bag && bag.getAttribute('href');
+  if (!hedef) return;
   location.replace(hedef);
 })();
 </script>
