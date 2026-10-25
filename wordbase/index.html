@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordBase — Word Game in 22 Languages</title>
+<meta name="description" content="WordBase: multiplayer word game with 22 dictionaries. Play friends, bots and leagues. Free on the App Store and Google Play.">
+<meta property="og:title" content="WordBase — Word Game">
+<meta property="og:description" content="7 tiles. 22 languages. Play friends or the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#11163A; --navy2:#1C2350; --cream:#FBF0D6; --muted:#A3AAD2; --amber:#FBBF24; --ink:#221B00; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter,-apple-system,sans-serif; color:var(--cream); min-height:100vh;
+    background:radial-gradient(800px 600px at 100% -10%,rgba(251,191,36,.14),transparent 60%),radial-gradient(700px 600px at -20% 110%,rgba(91,116,255,.18),transparent 60%),var(--navy); }
+  main { max-width:560px; margin:0 auto; padding:48px 20px 40px; text-align:center; }
+  .taslar { display:flex; justify-content:center; gap:10px; margin:8px 0 28px; }
+  .tas { width:56px; height:56px; border-radius:10px; background:linear-gradient(180deg,#F5E8CC,#E2CFA8); color:var(--ink);
+    font:700 30px/56px "Space Grotesk",sans-serif; position:relative; box-shadow:inset 0 2px 0 #FFF6E0,inset 0 -4px 0 rgba(120,90,40,.32),0 8px 18px rgba(0,0,0,.35);
+    animation:dus .6s cubic-bezier(.3,1.6,.5,1) both; }
+  .tas sub { position:absolute; right:6px; bottom:4px; font-size:12px; line-height:1; }
+  .tas:nth-child(2){animation-delay:.08s}.tas:nth-child(3){animation-delay:.16s}.tas:nth-child(4){animation-delay:.24s}
+  .tas:nth-child(5){animation-delay:.32s}.tas:nth-child(6){animation-delay:.40s}.tas:nth-child(7){animation-delay:.48s}.tas:nth-child(8){animation-delay:.56s}
+  @keyframes dus { from { transform:translateY(-80px) rotate(-8deg); opacity:0 } to { transform:none; opacity:1 } }
+  h1 { font:700 clamp(30px,8vw,44px)/1.1 "Space Grotesk",sans-serif; letter-spacing:-1px; margin:0 0 14px; text-wrap:balance; }
+  h1 em { font-style:normal; color:var(--amber); }
+  p.alt { color:var(--muted); font-size:17px; line-height:1.55; margin:0 auto 30px; max-width:440px; }
+  .dugmeler { display:flex; flex-direction:column; gap:12px; align-items:stretch; max-width:340px; margin:0 auto; }
+  .dugme { display:block; padding:16px 20px; border-radius:16px; font-weight:600; font-size:17px; text-decoration:none; }
+  .dugme.ana { background:var(--amber); color:var(--ink); }
+  .dugme.ikinci { border:1.5px solid rgba(251,240,214,.25); color:var(--cream); }
+  ul { list-style:none; padding:0; margin:36px 0 0; display:grid; gap:10px; text-align:left; }
+  li { background:var(--navy2); border-radius:14px; padding:14px 16px; font-size:15px; color:#E6DCC0; }
+  li b { color:var(--cream); }
+  footer { margin-top:36px; font-size:13px; color:var(--muted); }
+  footer a { color:var(--muted); }
+  .diller { margin-top:18px; font-size:14px; }
+  .diller button { background:none; border:0; color:var(--muted); font:inherit; cursor:pointer; padding:4px 8px; }
+  .diller button.on { color:var(--amber); font-weight:600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="taslar" aria-hidden="true"><div class="tas">W<sub>4</sub></div><div class="tas">O<sub>1</sub></div><div class="tas">R<sub>1</sub></div><div class="tas">D<sub>2</sub></div><div class="tas">B<sub>3</sub></div><div class="tas">A<sub>1</sub></div><div class="tas">S<sub>1</sub></div><div class="tas">E<sub>1</sub></div></div>
+  <h1 data-t="baslik"></h1>
+  <p class="alt" data-t="alt"></p>
+  <div class="dugmeler">
+    <a class="dugme ana" id="ana" href="https://apps.apple.com/app/id6781988415"></a>
+    <a class="dugme ikinci" id="ikinci" href="https://play.google.com/store/apps/details?id=com.idldynamics.wordbase"></a>
+  </div>
+  <ul><li data-t="m1"></li><li data-t="m2"></li><li data-t="m3"></li></ul>
+  <div class="diller"><button data-d="en">English</button>·<button data-d="tr">Türkçe</button>·<button data-d="fi">Suomi</button></div>
+  <footer>IDL Dynamics · <a href="/privacy-wordbase.html">Privacy</a> · <a href="/terms-wordbase.html">Terms</a></footer>
+</main>
+<script>
+const M = {
+  en: { baslik: "7 tiles. 22 languages. <em>Your move.</em>", alt: "WordBase is a multiplayer word game. Play friends, the world or smart bots — in English or 21 other languages.",
+        ios: "Download on the App Store", android: "Get it on Google Play",
+        m1: "<b>22 dictionaries</b> — every word checked by the game's own dictionary", m2: "<b>Leagues & weekly missions</b> — climb with every game", m3: "<b>Classic, Sprint & Blitz</b> — from a 5-minute duel to a slow game" },
+  tr: { baslik: "7 taş. 22 dil. <em>Sıra sende.</em>", alt: "WordBase çok oyunculu bir kelime oyunu. Arkadaşlarınla, dünyayla ya da akıllı botlarla Türkçe veya 21 başka dilde oyna.",
+        ios: "App Store'dan indir", android: "Google Play'den al",
+        m1: "<b>22 sözlük</b> — her kelime oyunun kendi sözlüğünden", m2: "<b>Ligler ve haftalık görevler</b> — her oyunla yüksel", m3: "<b>Klasik, Sprint ve Blitz</b> — 5 dakikalık düellodan uzun oyuna" },
+  fi: { baslik: "7 laattaa. 22 kieltä. <em>Sinun vuorosi.</em>", alt: "WordBase on moninpelattava sanapeli. Pelaa kavereita, koko maailmaa tai fiksuja botteja vastaan — suomeksi tai 21 muulla kielellä.",
+        ios: "Lataa App Storesta", android: "Hanki Google Playsta",
+        m1: "<b>22 sanastoa</b> — jokainen sana pelin omasta sanastosta", m2: "<b>Liigat ja viikkotehtävät</b> — nouse joka pelillä", m3: "<b>Klassinen, Sprintti ja Blitz</b> — 5 minuutin kaksintaistelusta pitkään peliin" },
+};
+const q = new URLSearchParams(location.search);
+let dil = q.get("l") || (navigator.language || "en").slice(0, 2);
+if (!M[dil]) dil = "en";
+// Kaynak etiketi (ör. ?k=ig_wb_tr) Google Play yönlendiricisine geçer → Play Console'da kampanya olarak görünür.
+const kaynak = (q.get("k") || "site").replace(/[^a-z0-9_]/gi, "");
+const play = `https://play.google.com/store/apps/details?id=com.idldynamics.wordbase&referrer=${encodeURIComponent(`utm_source=${kaynak.split("_")[0] || "site"}&utm_medium=social&utm_campaign=${kaynak}`)}`;
+const ios = "https://apps.apple.com/app/id6781988415";
+function ciz() {
+  const t = M[dil]; document.documentElement.lang = dil;
+  document.querySelectorAll("[data-t]").forEach(e => e.innerHTML = t[e.dataset.t]);
+  const android = /android/i.test(navigator.userAgent);
+  const ana = document.getElementById("ana"), ik = document.getElementById("ikinci");
+  ana.href = android ? play : ios; ana.textContent = android ? t.android : t.ios;
+  ik.href = android ? ios : play; ik.textContent = android ? t.ios : t.android;
+  document.querySelectorAll(".diller button").forEach(b => b.classList.toggle("on", b.dataset.d === dil));
+}
+document.querySelectorAll(".diller button").forEach(b => b.onclick = () => { dil = b.dataset.d; ciz(); });
+ciz();
+</script>
+</body>
+</html>
