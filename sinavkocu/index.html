@@ -84,14 +84,11 @@
            src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/tr-tr">
     </a>
 
-    <!-- GOOGLE PLAY: uygulama HENUZ YAYINDA DEGIL. Rozet pasif duruyor;
-         adres verilmiyor ki kimse 404'e dusmesin. Yayina cikinca href
-         doldurulup "pasif" sinifi ve alttaki not kaldirilir. -->
-    <span class="rozet pasif" id="android" aria-disabled="true">
-      <img alt="Google Play"
+    <!-- GOOGLE PLAY: yayında (26.10 doğrulandı). -->
+    <a class="rozet" id="android" href="https://play.google.com/store/apps/details?id=com.idldynamics.sinavkocu">
+      <img alt="Google Play'den alın"
            src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png">
-    </span>
-    <p class="yakinda">Google Play sürümü yakında.</p>
+    </a>
   </div>
 
   <p class="not">
@@ -107,16 +104,14 @@
   // location.replace kullaniliyor, href DEGIL: gecmise kayit birakmaz,
   // yani kullanici magazadan geri donunce bu sayfaya DUSMEZ.
   //
-  // YALNIZCA iOS yonlendirilir: Android surumu henuz yayinda degil, o
-  // cihazlar sayfada kalir ve "yakinda" notunu gorur. Yarim bir adrese
-  // atmaktansa sayfada tutmak iyidir -- paylasilan karekod yillarca
-  // dolasabilir ve olu bir yonlendirme geri alinamaz.
+  // iOS ve Android kendi magazasina; masaustu sayfada kalir (26.10: Play yayinda).
   var ua = navigator.userAgent || '';
   var ios = /iPad|iPhone|iPod/.test(ua) ||
             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (!ios) return;
+  var android = /android/i.test(ua);
+  if (!ios && !android) return;
 
-  var bag = document.getElementById('ios');
+  var bag = document.getElementById(ios ? 'ios' : 'android');
   var hedef = bag && bag.getAttribute('href');
   if (!hedef) return;
   location.replace(hedef);
