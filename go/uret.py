@@ -2,7 +2,8 @@
 """Sosyal profil bağlantıları: idldynamics.com/go/<ad>/ → cihaza göre TEK ADIMDA mağaza.
 iOS → App Store · Android → Google Play (kaynak etiketi referrer'da) · masaüstü → uygulamanın tanıtım sayfası.
 Play'de yayında olmayan uygulamada (ANDROID=None) Android sayfada kalır ve "yakında" notunu görür.
-Değişince: python3 go/uret.py → commit."""
+Değişince: python3 go/uret.py → commit.
+Tıklama işareti: hub.idldynamics.com/sosyal-medya/t.txt (Oracle Caddy hub.log) → sosyal/sunucu/tiklama.py günlük özet."""
 from pathlib import Path
 import html
 
@@ -37,6 +38,10 @@ main{{text-align:center;padding:24px}}a{{display:block;margin:10px auto;padding:
 </head><body><main><h1>{html.escape(baslik)}</h1><p>{y[0]}</p>{dugme}{not_}</main>
 <script>
 // location.replace: geçmişe kayıt bırakmaz, mağazadan geri dönen bu sayfaya düşmez.
+// Tıklama sayımı (SOS7): çerezsiz işaret, yalnız bağlantı adı + yönlendiren ALAN ADI; IP/kimlik tutulmaz (sosyal/sunucu/tiklama.py).
+(function(){{try{{var r="";try{{r=document.referrer?new URL(document.referrer).hostname:"";}}catch(e){{}}
+var u="https://hub.idldynamics.com/sosyal-medya/t.txt?g={ad}&r="+encodeURIComponent(r);
+if(!(navigator.sendBeacon&&navigator.sendBeacon(u)))fetch(u,{{mode:"no-cors",keepalive:true,credentials:"omit"}});}}catch(e){{}}}})();
 (function(){{var ua=navigator.userAgent||"";
 var ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 var android=/android/i.test(ua);var play={play!r};
