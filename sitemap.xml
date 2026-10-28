@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://idldynamics.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://idldynamics.com/wordbase/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://idldynamics.com/sinavkocu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://idldynamics.com/attendance/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://idldynamics.com/mathdoku/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://idldynamics.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://idldynamics.com/sinavkocu-privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/sinavkocu-terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/lulusin-privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/lulusin-terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/rozet-privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/rozet-terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/attendance-privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/privacy-wordbase.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/terms-wordbase.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/privacy-mathdoku.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

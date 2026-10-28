@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İzinli listeye katıl · IDL Reach</title>
+<meta name="description" content="IDL Reach izinli bültenine çift onayla katılın. Yalnızca siz onayladıktan sonra listeye eklenirsiniz; istediğiniz an çıkabilirsiniz.">
+<link rel="canonical" href="https://idlreach.com/abone.html">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F5FF" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237C6CF0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 2 11 13'/%3E%3Cpath d='M22 2 15 22l-4-9-9-4 20-7z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#main" class="skip">İçeriğe geç</a>
+<header>
+  <div class="nav">
+    <a href="/" class="brand display">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+      IDL <span>Reach</span>
+    </a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Açık ve koyu tema arasında geçiş yap">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" style="padding-bottom:12px">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Çift onaylı kayıt</span>
+    <h1 class="display">İzinli listeye <em>katıl.</em></h1>
+    <p class="lede">Formu gönderdikten sonra adresinize bir <b>doğrulama e-postası</b> ulaşır. Yalnızca o e-postadaki
+    bağlantıyı onayladığınızda listeye eklenirsiniz (çift onay). Onaylamazsanız adresiniz saklanmaz.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <!-- Form yalnızca POST eder; adres hiçbir zaman URL'ye yazılmaz. Gönderimi ve doğrulama e-postasını
+       idlreach.com'u sunan idl-eposta servisi (/abone ucu) işler — bkz. OKUBENI.md. -->
+  <form class="idl" method="post" action="/abone" novalidate>
+    <div class="field">
+      <label for="eposta">E-posta adresiniz <span aria-hidden="true">*</span></label>
+      <input type="email" id="eposta" name="eposta" autocomplete="email" required placeholder="ad.soyad@universite.edu.tr">
+    </div>
+    <div class="field">
+      <label for="ad">Adınız (isteğe bağlı)</label>
+      <input type="text" id="ad" name="ad" autocomplete="name" placeholder="Ad Soyad">
+    </div>
+    <div class="field">
+      <label for="kurum">Kurum (isteğe bağlı)</label>
+      <input type="text" id="kurum" name="kurum" autocomplete="organization" placeholder="Üniversite / okul">
+    </div>
+    <div class="field">
+      <label for="dil">Dil tercihi</label>
+      <select id="dil" name="dil">
+        <option value="tr" selected>Türkçe</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div class="consent">
+      <input type="checkbox" id="riza" name="riza" value="1" required>
+      <label for="riza">IDL Dynamics'in uygulama tanıtımları ve anket davetleri içeren ticari elektronik iletilerini
+      e-posta ile almayı kabul ediyorum. <a href="gizlilik.html">Aydınlatma Metnini</a> okudum; istediğim an tek tıkla
+      çıkabileceğimi biliyorum.</label>
+    </div>
+    <button type="submit" class="btn btn-primary" style="align-self:flex-start">Doğrulama e-postası gönder</button>
+  </form>
+
+  <div class="note">
+    <b>Verileriniz güvende.</b> Adresinizi satmayız, üçüncü taraflara vermeyiz. Onaylı kaydınız İYS'ye (İleti Yönetim
+    Sistemi) işlenir ve her iletide tek tıkla çıkış bağlantısı yer alır. Ayrıntı: <a href="gizlilik.html">Gizlilik &amp; KVKK</a>.
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/">Ana sayfa</a>
+      <a href="cik.html">Çıkış</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+      <a href="https://idldynamics.com">idldynamics.com</a>
+    </div>
+    <small>&copy; 2026 IDL Dynamics · IDL Reach.</small>
+  </div>
+</footer>
+
+<script>
+(function(){var r=document.documentElement,k='idlreach-theme';
+try{var s=localStorage.getItem(k);if(s)r.setAttribute('data-theme',s);}catch(e){}
+var b=document.getElementById('themeToggle');if(b)b.addEventListener('click',function(){
+var c=r.getAttribute('data-theme');if(!c)c=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+var n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem(k,n);}catch(e){}});})();
+</script>
+</body>
+</html>

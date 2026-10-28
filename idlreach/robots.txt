@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /abone.html
+Disallow: /onay.html
+Disallow: /cik.html
+
+Sitemap: https://idlreach.com/sitemap.xml
