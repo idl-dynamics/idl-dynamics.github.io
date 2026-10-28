@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDL Attendance | Nasıl kullanılır · How to use</title>
+    <meta name="description" content="IDL Attendance video guide: create a class, invite students, take attendance with QR or digital button, export Excel. Turkish and English voice, subtitles in 16 languages.">
+    <link rel="icon" href="https://img.icons8.com/fluency/48/000000/calendar.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Bu sayfada izleme pikseli, çerez, üçüncü taraf analitik YOK (EP8). Video ve altyazılar bu sitenin kendi dosyalarıdır. -->
+    <style>
+        :root { --ink:#0B0B12; --ink-raised:#15151F; --ink-raised-2:#1C1C29; --paper:#F3F1FF; --muted:#8E8AA8; --teal:#2DD4BF; --teal-soft:rgba(45,212,191,.14); --indigo:#5B74FF; }
+        * { box-sizing: border-box; }
+        body { font-family:'Inter',-apple-system,sans-serif; margin:0; background:var(--ink); color:var(--paper); line-height:1.6; overflow-x:hidden; }
+        a { color:inherit; }
+        .container { max-width:1080px; margin:0 auto; padding:0 16px; }
+        nav { padding:18px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+        nav .container { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+        .logo { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700; text-decoration:none; }
+        .logo span { color:var(--teal); }
+        .dil { display:flex; gap:6px; }
+        .dil button { background:transparent; border:1px solid rgba(255,255,255,.16); color:var(--paper); padding:6px 12px; border-radius:10px; font:600 .85rem 'Inter',sans-serif; cursor:pointer; }
+        .dil button.on { background:var(--teal); color:var(--ink); border-color:var(--teal); }
+        header { text-align:center; padding:44px 0 18px; }
+        h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.8rem,5vw,2.8rem); letter-spacing:-1px; margin:0 0 10px; }
+        header p { color:var(--muted); margin:0 auto; max-width:620px; }
+        .rol { display:flex; justify-content:center; gap:8px; margin:22px 0 0; flex-wrap:wrap; }
+        .rol button { background:var(--ink-raised-2); border:1px solid rgba(255,255,255,.08); color:var(--paper); padding:10px 18px; border-radius:12px; font:600 .95rem 'Inter',sans-serif; cursor:pointer; }
+        .rol button.on { border-color:var(--teal); color:var(--teal); }
+        .izle { display:grid; grid-template-columns:minmax(0,380px) minmax(0,1fr); gap:28px; align-items:start; padding:26px 0 60px; }
+        video { width:100%; aspect-ratio:9/16; border-radius:22px; background:#2E3FB8; display:block; }
+        video::cue { font-family:'Inter',sans-serif; font-size:1rem; background:rgba(11,11,18,.82); color:#fff; }
+        .yan h2 { font-family:'Space Grotesk',sans-serif; font-size:1.2rem; margin:0 0 12px; }
+        .bolumler { list-style:none; margin:0; padding:0; }
+        .bolumler li button { width:100%; text-align:left; display:flex; gap:12px; align-items:center; background:var(--ink-raised); border:1px solid rgba(255,255,255,.06); color:var(--paper); padding:12px 14px; border-radius:14px; margin-bottom:8px; font:500 .95rem 'Inter',sans-serif; cursor:pointer; }
+        .bolumler li button.on { border-color:var(--teal); }
+        .bolumler time { color:var(--teal); font-variant-numeric:tabular-nums; font-size:.85rem; min-width:42px; }
+        .altyazi { margin:18px 0 0; color:var(--muted); font-size:.9rem; }
+        .altyazi select { background:var(--ink-raised-2); color:var(--paper); border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:6px 8px; font:inherit; }
+        .magaza { margin-top:22px; display:flex; gap:10px; flex-wrap:wrap; }
+        .magaza a { display:inline-block; padding:11px 18px; border-radius:12px; text-decoration:none; font-weight:600; font-size:.92rem; border:1px solid rgba(255,255,255,.16); }
+        .magaza a.ana { background:var(--teal); color:var(--ink); border-color:var(--teal); }
+        footer { text-align:center; padding:34px 16px; color:var(--muted); font-size:.88rem; border-top:1px solid rgba(255,255,255,.06); }
+        footer a { color:var(--muted); }
+        @media (max-width:760px) { .izle { grid-template-columns:1fr; } video { max-width:420px; margin:0 auto; } }
+    </style>
+</head>
+<body>
+<nav><div class="container">
+    <a href="/attendance/" class="logo">IDL <span>Attendance</span></a>
+    <div class="dil" role="group" aria-label="Language / Dil">
+        <button data-ses="tr">Türkçe</button><button data-ses="en">English</button>
+    </div>
+</div></nav>
+
+<main class="container">
+    <header>
+        <h1 id="baslik"></h1>
+        <p id="alt"></p>
+        <div class="rol" role="tablist">
+            <button data-video="tam" id="r_tam"></button>
+            <button data-video="ogretmen" id="r_ogretmen"></button>
+            <button data-video="ogrenci" id="r_ogrenci"></button>
+        </div>
+    </header>
+
+    <section class="izle">
+        <video id="v" controls playsinline preload="metadata" crossorigin="anonymous"></video>
+        <div class="yan">
+            <h2 id="bolum_baslik"></h2>
+            <ul class="bolumler" id="bolumler"></ul>
+            <div class="altyazi"><label for="alt_sec" id="alt_etiket"></label>
+                <select id="alt_sec"></select></div>
+            <div class="magaza">
+                <a class="ana" id="indir" href="https://idldynamics.com/attendance/"></a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a href="/privacy-attendance.html">Privacy Policy</a> · <a href="/attendance-support.html">Support</a>
+    <p>&copy; 2026 IDL Dynamics</p>
+    <p id="ai" style="font-size:.8rem"></p>
+</footer>
+
+<script>
+// Ses: TR ya da EN (kurucu kuralı). Altyazı: TR seste yalnız TR; EN seste 15 dil (Tier-1).
+const ALTYAZI = {
+  tr: [['tr','Türkçe']],
+  en: [['en','English'],['ar','العربية'],['id','Bahasa Indonesia'],['ru','Русский'],['vi','Tiếng Việt'],['uk','Українська'],
+       ['it','Italiano'],['af','Afrikaans'],['ms','Bahasa Melayu'],['es-ES','Español (España)'],['es-419','Español (Latinoamérica)'],
+       ['fr','Français'],['de','Deutsch'],['pt-BR','Português (Brasil)'],['hi','हिन्दी']]
+};
+const METIN = {
+  tr: { baslik:'IDL Attendance nasıl kullanılır?', alt:'Ders oluşturmaktan Excel raporuna kadar her adım. Türkçe seslendirme ve altyazı.',
+        tam:'Tamamı', ogretmen:'Eğitmen', ogrenci:'Öğrenci', bolum:'Bölümler', altyazi:'Altyazı', yok:'Kapalı',
+        indir:'Uygulamayı indir', ai:'Seslendirme yapay zekâ ile üretildi. Ekranlar örnek veriyle hazırlanmış temsilî görüntülerdir.' },
+  en: { baslik:'How to use IDL Attendance', alt:'Every step, from creating a class to the Excel report. English voice, subtitles in 15 languages.',
+        tam:'Full video', ogretmen:'Instructor', ogrenci:'Student', bolum:'Chapters', altyazi:'Subtitles', yok:'Off',
+        indir:'Get the app', ai:'AI-generated voice-over. Screens are representative and use sample data.' }
+};
+const yol = location.pathname.includes('/how-to') ? 'en' : 'tr';
+const q = new URLSearchParams(location.search);
+let ses = q.get('dil') === 'en' || q.get('lang') === 'en' ? 'en' : q.get('dil') === 'tr' ? 'tr' : yol;
+let video = ['tam','ogretmen','ogrenci'].includes(q.get('video')) ? q.get('video') : 'tam';
+const v = document.getElementById('v'), sec = document.getElementById('alt_sec');
+
+function tercihAltyazi(){
+  if (ses === 'tr') return 'tr';
+  const n = (navigator.language || 'en');
+  const liste = ALTYAZI.en.map(x => x[0]);
+  return liste.find(x => x.toLowerCase() === n.toLowerCase()) || liste.find(x => x.split('-')[0] === n.split('-')[0].toLowerCase()) || 'en';
+}
+const sure = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+
+function kur(){
+  const M = METIN[ses];
+  document.documentElement.lang = ses;
+  for (const k of ['baslik','alt','ai']) document.getElementById(k).textContent = M[k];
+  document.getElementById('bolum_baslik').textContent = M.bolum;
+  document.getElementById('alt_etiket').textContent = M.altyazi + ' ';
+  document.getElementById('indir').textContent = M.indir;
+  for (const r of ['tam','ogretmen','ogrenci']) { const b = document.getElementById('r_'+r); b.textContent = M[r]; b.classList.toggle('on', r === video); }
+  document.querySelectorAll('.dil button').forEach(b => b.classList.toggle('on', b.dataset.ses === ses));
+  const secili = tercihAltyazi();
+  v.innerHTML = '';
+  v.src = `video/egitim_${video}_${ses}.mp4`;
+  v.poster = `video/kapak_${ses}.jpg`;
+  sec.innerHTML = `<option value="">${M.yok}</option>` + ALTYAZI[ses].map(([k,ad]) => `<option value="${k}" ${k===secili?'selected':''}>${ad}</option>`).join('');
+  for (const [k, ad] of ALTYAZI[ses]) {
+    const t = document.createElement('track');
+    Object.assign(t, {kind:'subtitles', srclang:k, label:ad, src:`video/egitim_${video}_${ses}.${k}.vtt`, default: k === secili});
+    v.appendChild(t);
+  }
+  const c = document.createElement('track');
+  Object.assign(c, {kind:'chapters', srclang:secili, src:`video/egitim_${video}_${ses}.${secili}.bolumler.vtt`});
+  c.addEventListener('load', () => bolumler(c.track));
+  v.appendChild(c);
+  c.track.mode = 'hidden';
+  altyaziSec(secili);
+}
+function altyaziSec(k){ for (const t of v.textTracks) if (t.kind === 'subtitles') t.mode = t.language === k ? 'showing' : 'disabled'; }
+function bolumler(track){
+  const ul = document.getElementById('bolumler'); ul.innerHTML = '';
+  for (const cue of track.cues) {
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.innerHTML = `<time>${sure(cue.startTime)}</time><span></span>`; b.querySelector('span').textContent = cue.text;
+    b.onclick = () => { v.currentTime = cue.startTime + 0.01; v.play(); };
+    b.dataset.bas = cue.startTime; b.dataset.son = cue.endTime;
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+v.addEventListener('timeupdate', () => document.querySelectorAll('.bolumler button').forEach(b =>
+  b.classList.toggle('on', v.currentTime >= +b.dataset.bas && v.currentTime < +b.dataset.son)));
+v.addEventListener('loadedmetadata', () => altyaziSec(sec.value));
+sec.onchange = () => altyaziSec(sec.value);
+document.querySelectorAll('.dil button').forEach(b => b.onclick = () => { ses = b.dataset.ses; kur(); });
+document.querySelectorAll('.rol button').forEach(b => b.onclick = () => { video = b.dataset.video; kur(); });
+kur();
+</script>
+</body>
+</html>
