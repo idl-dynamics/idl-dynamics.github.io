@@ -18,4 +18,6 @@
   <url><loc>https://idldynamics.com/privacy-wordbase.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://idldynamics.com/terms-wordbase.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://idldynamics.com/privacy-mathdoku.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/mathdoku-terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://idldynamics.com/kpss-terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
