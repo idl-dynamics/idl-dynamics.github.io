@@ -17,7 +17,7 @@ GO = {
     "wordbase-fi": ("WordBase", "fi", "https://apps.apple.com/app/id6781988415", "com.idldynamics.wordbase", "/wordbase/?l=fi&k=ig_wb_fi", "ig_wb_fi", ""),
     "attendance": ("IDL Attendance", "en", "https://apps.apple.com/app/id6760389433", "com.idldynamics.attendance", "/attendance/", "ig_at_en", ""),
     "yoklama": ("IDL Attendance", "tr", "https://apps.apple.com/app/id6760389433", "com.idldynamics.attendance", "/attendance/", "ig_at_tr", ""),
-    "rozet": ("Rozet", "tr", "https://apps.apple.com/app/id6824834147", None, "https://apps.apple.com/app/id6824834147", "ig_rozet", "Android sürümü çok yakında."),
+    "rozet": ("Rozet", "tr", "https://apps.apple.com/app/id6824834147", "com.idldynamics.rozet", "https://apps.apple.com/app/id6824834147", "ig_rozet", ""),  # Play üretimde (11.11)
     "mathdoku": ("MathDoku X", "en", "https://apps.apple.com/app/id6759137802", "com.idldynamics.mathdoku", "/mathdoku/", "ig_md", ""),
 }
 YAZI = {"tr": ("Mağazaya yönlendiriliyorsun…", "App Store", "Google Play"),
