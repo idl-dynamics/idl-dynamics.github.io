@@ -111,6 +111,7 @@
   var ios = /iPad|iPhone|iPod/.test(ua) ||
             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var android = /android/i.test(ua);
+  if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(ua)) return; // 14.11: arama botu yönlenmez (mobil öncelikli dizinleme)
   if (!ios && !android) return;
 
   var bag = document.getElementById(ios ? 'ios' : 'android');

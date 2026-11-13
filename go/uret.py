@@ -11,13 +11,13 @@ D = Path(__file__).resolve().parent
 # ad: (başlık, dil, ios, android paketi|None, masaüstü, kaynak, "yakında" notu)
 GO = {
     "sinavkocu": ("Sınav Koçu", "tr", "https://apps.apple.com/app/id6795812576", "com.idldynamics.sinavkocu", "/sinavkocu/", "ig_sk", ""),
-    "lulusin": ("Lulusin", "id", "https://apps.apple.com/app/id6808125443", "com.lulusin.app", "https://apps.apple.com/app/id6808125443", "ig_lulusin", ""),
+    "lulusin": ("Lulusin", "id", "https://apps.apple.com/app/id6808125443", "com.lulusin.app", "/lulusin/", "ig_lulusin", ""),
     "wordbase": ("WordBase", "en", "https://apps.apple.com/app/id6781988415", "com.idldynamics.wordbase", "/wordbase/?l=en&k=ig_wb_en", "ig_wb_en", ""),
     "wordbase-tr": ("WordBase", "tr", "https://apps.apple.com/app/id6781988415", "com.idldynamics.wordbase", "/wordbase/?l=tr&k=ig_wb_tr", "ig_wb_tr", ""),
     "wordbase-fi": ("WordBase", "fi", "https://apps.apple.com/app/id6781988415", "com.idldynamics.wordbase", "/wordbase/?l=fi&k=ig_wb_fi", "ig_wb_fi", ""),
     "attendance": ("IDL Attendance", "en", "https://apps.apple.com/app/id6760389433", "com.idldynamics.attendance", "/attendance/", "ig_at_en", ""),
     "yoklama": ("IDL Attendance", "tr", "https://apps.apple.com/app/id6760389433", "com.idldynamics.attendance", "/attendance/", "ig_at_tr", ""),
-    "rozet": ("Rozet", "tr", "https://apps.apple.com/app/id6824834147", "com.idldynamics.rozet", "https://apps.apple.com/app/id6824834147", "ig_rozet", ""),  # Play üretimde (11.11)
+    "rozet": ("Rozet", "tr", "https://apps.apple.com/app/id6824834147", "com.idldynamics.rozet", "/rozet/", "ig_rozet", ""),  # Play üretimde (11.11)
     "mathdoku": ("MathDoku X", "en", "https://apps.apple.com/app/id6759137802", "com.idldynamics.mathdoku", "/mathdoku/", "ig_md", ""),
 }
 YAZI = {"tr": ("Mağazaya yönlendiriliyorsun…", "App Store", "Google Play"),
