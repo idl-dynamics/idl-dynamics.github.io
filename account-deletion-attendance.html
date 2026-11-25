@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hesap ve Veri Silme - IDL Attendance</title>
+<style>
+  :root { --ana:#7A1F3D; --altin:#C8962E; --ink:#241519; --muted:#6B5A5E; --bg:#FBF6F3; --card:#FFFFFF; --border:#E7DADB; --zemin:#F7EAE9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  .wrap { max-width:720px; margin:0 auto; padding:48px 24px 96px; }
+  .badge { display:inline-block; background:#F3DDE3; color:var(--ana); font-size:13px; font-weight:600; padding:4px 12px; border-radius:999px; margin-bottom:16px; }
+  h1 { font-size:32px; font-weight:800; margin:0 0 8px; letter-spacing:-0.02em; }
+  .updated { color:var(--muted); font-size:14px; margin-bottom:40px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; margin-bottom:16px; }
+  .card h2 { font-size:18px; font-weight:700; margin:0 0 10px; display:flex; align-items:center; gap:10px; }
+  .num { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:var(--ana); color:white; font-size:13px; font-weight:700; flex-shrink:0; }
+  .card p, .card li { color:#3F2F34; font-size:15px; margin:0; }
+  .card ul { margin:8px 0 0; padding-left:20px; } .card ul li + li { margin-top:6px; } .card p + p { margin-top:10px; }
+  strong { color:var(--ink); }
+  a { color:var(--ana); text-decoration:none; font-weight:600; } a:hover { text-decoration:underline; }
+  .path { background:var(--zemin); border:1px solid #E6CBD2; border-radius:12px; padding:14px 16px; margin:12px 0 0; font-size:15px; color:var(--ink); }
+  .path strong { white-space:nowrap; }
+  .note { color:var(--muted); font-size:14px; margin-top:12px; }
+  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:40px; }
+  .ozet { background:var(--zemin); border:1px solid #E6CBD2; border-radius:16px; padding:20px 24px; margin-bottom:16px; }
+  .ozet p { margin:0; font-size:15px; } .ozet p + p { margin-top:8px; } .ozet ul { margin:8px 0 0; padding-left:20px; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:14px; }
+  th, td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--border); vertical-align:top; color:#3F2F34; } th { color:var(--ink); font-weight:700; }
+  nav.diger { text-align:center; margin-top:24px; font-size:14px; } nav.diger a { margin:0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">IDL Attendance</span>
+  <h1>Hesap ve Veri Silme</h1>
+  <div class="updated">Son güncelleme: 25 Kasım 2026</div>
+  <div class="ozet"><p>IDL Attendance (IDL Dynamics) hesabınızı ve hesabınıza bağlı kişisel verileri istediğiniz zaman silebilirsiniz. En hızlı yol uygulamanın içindendir: uygulama içinden silme anında yapılır. Olmazsa e-posta ile de isteyebilirsiniz; e-posta talebi en geç 30 gün içinde yerine getirilir.</p></div>
+  <div class="card"><h2><span class="num">1</span>Uygulamanın içinden silin</h2><div class="path">Uygulamada: <strong>Profil</strong> → <strong>Hesabı Sil</strong> → onay kutusuna istenen kelimeyi yazın → onaylayın</div><p>Onay kelimesi uygulama dilinde gösterilir (ör. Türkçede "SİL", İngilizcede "DELETE"). Onayladığınızda silme anında yapılır ve geri alınamaz; hesabınız silinir ve oturumunuz kapatılır.</p></div>
+  <div class="card"><h2><span class="num">2</span>E-posta ile isteyin</h2><p>Uygulamaya giremiyorsanız, hesabınızda kayıtlı e-posta adresinden <a href="mailto:idldynamics@gmail.com?subject=IDL%20Attendance%20hesap%20silme">idldynamics@gmail.com</a> adresine "IDL Attendance hesap silme" konulu bir e-posta gönderin. Talebiniz en geç 30 gün içinde yerine getirilir ve size bildirilir.</p></div>
+  <div class="card"><h2><span class="num">3</span>Neler silinir</h2><p><strong>Tüm hesaplarda:</strong></p><ul><li>profil bilgileriniz ve giriş hesabınız,</li><li>gönderdiğiniz ve aldığınız mesajlar, bildirimleriniz ve duyuru tercihleriniz,</li><li>abonelik kaydınız ve cihaz değişikliği kayıtlarınız,</li><li>destek yazışmalarınız ve size gönderilen destek duyuruları,</li><li>geri bildirimleriniz ve anket yanıtlarınız,</li><li>engelleme listeniz, gizlediğiniz sohbetler ve mesaj şikâyetleriniz,</li><li>bildirim için kayıtlı cihaz bilgileriniz,</li><li>satın alma ve abonelik kayıtlarınız,</li><li>hesabınıza bağlı işlem kayıtları.</li></ul><p><strong>Öğrenci hesabı</strong> silinince kendi yoklama kayıtlarınız ve sınıf kayıtlarınız da silinir.</p><p><strong>Öğretmen hesabı</strong> silinince açtığınız sınıflar, dönemler, yoklama oturumları ve bu oturumlardaki öğrenci yoklama kayıtları da silinir; öğrenciler o sınıflardan çıkarılır.</p><p>Uygulama içinden silme anında yapılır ve geri alınamaz; e-posta ile talep edilen silme en geç 30 gün içinde tamamlanır.</p></div>
+  <div class="card"><h2><span class="num">4</span>Neler kalabilir</h2><p>Artık size bağlanamayan, anonim ya da toplu istatistikler hizmeti geliştirmek için 30 günlük silme süresinden sonra da tutulabilir.</p><p>Hesap silme, bizim veritabanımızdaki verilerinizi siler; üçüncü taraf hizmet sağlayıcılardaki (barındırma, bildirim, ödeme, analitik ve reklam hizmet sağlayıcıları) kayıtlar o sağlayıcıların kendi saklama kurallarına tabidir.</p></div>
+  <div class="card"><h2><span class="num">5</span>Önemli</h2><p>Hesap silmek mağaza aboneliğinizi iptal etmez; App Store / Google Play abonelik ayarlarından ayrıca iptal edin. (iPhone: Ayarlar › adınız › Abonelikler; Android: Google Play › Ödemeler ve abonelikler › Abonelikler.)</p></div>
+  <div class="card"><h2><span class="num">6</span>In English</h2><p>You can delete your IDL Attendance account and associated personal data at any time: in the app go to <strong>Profile</strong> → <strong>Delete Account</strong>, type <strong>DELETE</strong> to confirm, or email <a href="mailto:idldynamics@gmail.com?subject=Account%20Deletion%20Request">idldynamics@gmail.com</a> from your registered address with the subject "Account Deletion Request"; we complete email requests within 30 days (deletion from within the app is immediate).</p><p>What is deleted: for all accounts, your profile and login account, messages you sent and received, notifications, subscription record and device-change records, support conversations and support announcements sent to you, feedback and survey responses, your block list, hidden chats and message reports, registered notification device data, and purchase and subscription records. Student accounts: your own attendance records and class enrollments. Teacher accounts: the classes, semesters and attendance sessions you created, including all students' attendance records in those sessions; students are removed from those classes. Deletion is immediate and cannot be undone.</p><p>Deleting your account does not cancel your store subscription. Please cancel it separately in your App Store or Google Play subscription settings.</p><p>Account deletion removes the data in our own database; records held by third-party service providers (hosting, notification, payment, analytics and advertising providers) are subject to those providers' own retention rules.</p></div>
+
+  <nav class="diger"><a href="attendance-privacy.html">Gizlilik</a><a href="account-deletion-attendance.html">Hesap ve veri silme</a></nav>
+  <footer>© 2026 IDL Dynamics.</footer>
+</div>
+</body>
+</html>
